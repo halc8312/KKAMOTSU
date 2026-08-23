@@ -97,6 +97,50 @@ const faqs = [
   ],
 ];
 
+const navItems = [
+  ["#benefits", "特徴"],
+  ["#income", "収入例"],
+  ["#day", "1日の流れ"],
+  ["#requirements", "募集要項"],
+  ["#flow", "応募の流れ"],
+  ["#faq", "よくある質問"],
+];
+
+/* Text glyphs (✓ ↗ →) render at a different weight, baseline and
+   width in every JP font fallback. Inline SVG renders identically. */
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path
+        d="M2.75 8.5 6.25 12l7-8"
+        stroke="currentColor"
+        strokeWidth="2.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function ArrowIcon({ down = false }: { down?: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 16 16"
+      fill="none"
+      aria-hidden="true"
+      style={{ width: 15, height: 15, flex: "none", transform: down ? "rotate(90deg)" : undefined }}
+    >
+      <path
+        d="M2.5 8h11m0 0-4.25-4.25M13.5 8l-4.25 4.25"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -116,16 +160,28 @@ export default function Home() {
         </a>
 
         <nav className="header-nav" aria-label="メインナビゲーション">
-          <a href="#benefits">特徴</a>
-          <a href="#income">収入例</a>
-          <a href="#requirements">募集要項</a>
-          <a href="#faq">よくある質問</a>
+          {navItems.slice(0, 4).map(([href, label]) => (
+            <a key={href} href={href}>
+              {label}
+            </a>
+          ))}
           <a className="header-cta" href="#entry">
             まずは相談する
-            <span aria-hidden="true">↗</span>
+            <ArrowIcon />
           </a>
         </nav>
       </header>
+
+      {/* Phone navigation. The previous build hid every nav link
+          below 980px and shipped no menu, leaving no way to reach
+          a section from a phone. */}
+      <nav className="section-rail" aria-label="セクションナビゲーション">
+        {navItems.map(([href, label]) => (
+          <a key={href} href={href}>
+            {label}
+          </a>
+        ))}
+      </nav>
 
       <main id="main-content">
         <section className="hero" id="top">
@@ -148,42 +204,50 @@ export default function Home() {
             <div className="hero-actions">
               <a className="button button-primary" href="#entry">
                 まずは仕事内容を聞く
-                <span aria-hidden="true">→</span>
+                <ArrowIcon />
               </a>
               <a className="text-link" href="#benefits">
                 働き方を見る
-                <span aria-hidden="true">↓</span>
+                <ArrowIcon down />
               </a>
             </div>
 
             <ul className="hero-points" aria-label="応募のポイント">
-              <li>
-                <span aria-hidden="true">✓</span> 未経験歓迎
-              </li>
-              <li>
-                <span aria-hidden="true">✓</span> 普通免許で応募OK
-              </li>
-              <li>
-                <span aria-hidden="true">✓</span> 車両相談可
-              </li>
+              {["未経験歓迎", "普通免許で応募OK", "車両相談可"].map((point) => (
+                <li key={point}>
+                  <CheckIcon />
+                  {point}
+                </li>
+              ))}
             </ul>
           </div>
 
           <div className="hero-visual">
-            <img
-              src="/hero-driver.png"
-              alt="白い軽バンの前で荷物を持つ配送ドライバー"
-              width="1586"
-              height="992"
-              fetchPriority="high"
-            />
+            <picture className="hero-picture">
+              <source
+                type="image/avif"
+                srcSet="/hero-driver-800.avif 800w, /hero-driver-1586.avif 1586w"
+                sizes="(max-width: 980px) 100vw, 52vw"
+              />
+              <source
+                type="image/webp"
+                srcSet="/hero-driver-800.webp 800w, /hero-driver-1586.webp 1586w"
+                sizes="(max-width: 980px) 100vw, 52vw"
+              />
+              <img
+                src="/hero-driver.png"
+                alt="白い軽バンの前で荷物を持つ配送ドライバー"
+                width="1586"
+                height="992"
+                fetchPriority="high"
+                decoding="async"
+                sizes="(max-width: 980px) 100vw, 52vw"
+              />
+            </picture>
             <div className="hero-badge">
               <span>ENTRY</span>
               <strong>応募前の相談だけでもOK</strong>
             </div>
-            <p className="vertical-caption" aria-hidden="true">
-              MOVE LIGHT. LIVE FREE.
-            </p>
           </div>
         </section>
 
@@ -203,19 +267,11 @@ export default function Home() {
           <p>働き方・案件は相談可能です</p>
         </section>
 
-        <section className="section benefits" id="benefits">
+        <section className="section split benefits" id="benefits">
           <div className="section-heading">
             <p className="section-kicker">OUR ADVANTAGES</p>
-            <h2>
-              はじめやすく、
-              <br />
-              続けやすい仕事へ。
-            </h2>
-            <p>
-              配送の仕事が初めてでも大丈夫。
-              <br />
-              希望を聞くところから始めます。
-            </p>
+            <h2>はじめやすく、続けやすい仕事へ。</h2>
+            <p>配送の仕事が初めてでも大丈夫。希望を聞くところから始めます。</p>
           </div>
 
           <div className="benefit-grid">
@@ -227,9 +283,6 @@ export default function Home() {
                 </div>
                 <h3>{benefit.title}</h3>
                 <p>{benefit.copy}</p>
-                <span className="card-arrow" aria-hidden="true">
-                  ↗
-                </span>
               </article>
             ))}
           </div>
@@ -239,11 +292,7 @@ export default function Home() {
           <div className="income-inner">
             <div className="income-heading">
               <p className="section-kicker section-kicker-light">INCOME EXAMPLES</p>
-              <h2>
-                働き方で変わる、
-                <br />
-                3つの売上実績例。
-              </h2>
+              <h2>働き方で変わる、3つの売上実績例。</h2>
               <p>自分のペースも、しっかり稼働も。希望する働き方をご相談ください。</p>
             </div>
 
@@ -254,8 +303,10 @@ export default function Home() {
                   <p className="income-name">{example.name}</p>
                   <p className="income-amount">
                     <small>月間売上</small>
-                    <strong>{example.amount}</strong>
-                    <span>万円</span>
+                    <span className="income-figure">
+                      <strong>{example.amount}</strong>
+                      <span>万円</span>
+                    </span>
                   </p>
                   <div className="income-meta">
                     <span>{example.days}</span>
@@ -271,7 +322,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section day-section" id="day">
+        <section className="section split day-section" id="day">
           <div className="section-heading day-heading">
             <p className="section-kicker">A DAY AT WORK</p>
             <h2>ある1日の流れ</h2>
@@ -295,22 +346,23 @@ export default function Home() {
         </section>
 
         <section className="requirements-section" id="requirements">
-          <div className="requirements-inner">
+          <div className="requirements-inner split">
             <div className="requirements-intro">
               <p className="section-kicker">JOB DETAILS</p>
               <h2>募集要項</h2>
               <p>
-                わからないことは、応募前に確認できます。
-                <br />
-                条件を納得してから始めてください。
+                わからないことは、応募前に確認できます。条件を納得してから始めてください。
               </p>
 
               <aside className="fit-card">
                 <span>こんな方におすすめ</span>
                 <ul>
-                  <li>運転することが好き</li>
-                  <li>自分のペースで働きたい</li>
-                  <li>頑張りを仕事に活かしたい</li>
+                  {["運転することが好き", "自分のペースで働きたい", "頑張りを仕事に活かしたい"].map((item) => (
+                    <li key={item}>
+                      <CheckIcon />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </aside>
             </div>
@@ -345,14 +397,10 @@ export default function Home() {
         </section>
 
         <section className="faq-section" id="faq">
-          <div className="faq-inner">
+          <div className="faq-inner split">
             <div className="section-heading faq-heading">
               <p className="section-kicker">FAQ</p>
-              <h2>
-                よくある
-                <br />
-                ご質問
-              </h2>
+              <h2>よくあるご質問</h2>
               <p>応募前の不安を、先に解消します。</p>
             </div>
 
@@ -365,7 +413,7 @@ export default function Home() {
                     <i aria-hidden="true" />
                   </summary>
                   <div className="faq-answer">
-                    <span>A</span>
+                    <span aria-hidden="true">A</span>
                     <p>{answer}</p>
                   </div>
                 </details>
@@ -379,9 +427,7 @@ export default function Home() {
             <p className="section-kicker section-kicker-light">ENTRY / CONTACT</p>
             <h2>まずは、あなたの希望を聞かせてください。</h2>
             <p>
-              仕事内容や費用を確認してから検討したい方も歓迎です。
-              <br />
-              応募前の相談だけでも、気軽にご連絡ください。
+              仕事内容や費用を確認してから検討したい方も歓迎です。応募前の相談だけでも、気軽にご連絡ください。
             </p>
           </div>
           <a
@@ -389,21 +435,14 @@ export default function Home() {
             href="mailto:recruit@zendai-unso.example?subject=%E5%89%8D%E4%BB%A3%E9%81%8B%E9%80%81%E3%83%BB%E8%BB%BD%E8%B2%A8%E7%89%A9%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E5%BF%9C%E5%8B%9F%E7%9B%B8%E8%AB%87"
           >
             応募相談メールを開く
-            <span aria-hidden="true">→</span>
+            <ArrowIcon />
           </a>
         </section>
-
-        <aside className="draft-notice" aria-label="サイト公開前の確認事項">
-          <strong>公開前チェック</strong>
-          <p>
-            ブランド名・対応エリア・収入実績・募集条件・連絡先は仮の内容です。実際の情報に差し替えてから公開してください。
-          </p>
-        </aside>
       </main>
 
       <a className="mobile-entry-bar" href="#entry">
         応募・相談はこちら
-        <span aria-hidden="true">→</span>
+        <ArrowIcon />
       </a>
 
       <footer className="site-footer">
@@ -417,10 +456,11 @@ export default function Home() {
           </span>
         </a>
         <nav className="footer-nav" aria-label="フッターナビゲーション">
-          <a href="#benefits">特徴</a>
-          <a href="#income">収入例</a>
-          <a href="#requirements">募集要項</a>
-          <a href="#faq">FAQ</a>
+          {navItems.map(([href, label]) => (
+            <a key={href} href={href}>
+              {label}
+            </a>
+          ))}
         </nav>
         <p>© 2026 前代運送. All Rights Reserved.</p>
       </footer>
