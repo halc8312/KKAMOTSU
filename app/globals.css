@@ -126,9 +126,15 @@ body {
    in supporting browsers; `keep-all` + strict is the fallback that
    stops mid-compound breaks like 仕/事 and 流/れ. */
 h1, h2, h3, .lead, .hero-lead, .section-heading p, summary {
-  word-break: auto-phrase;
+  word-break: keep-all;
   line-break: strict;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
+}
+
+@supports (word-break: auto-phrase) {
+  h1, h2, h3, .lead, .hero-lead, .section-heading p, summary {
+    word-break: auto-phrase;
+  }
 }
 
 h1, h2, h3, h4, p { margin: 0; }
@@ -139,11 +145,12 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* ---------- Focus: previously the site had ZERO :focus-visible
      rules outside the skip link, so keyboard users saw nothing. */
 :where(a, button, summary, [tabindex]):focus-visible {
-  outline: 3px solid var(--lime-deep);
+  outline: 3px solid var(--olive);
   outline-offset: 3px;
   border-radius: var(--r-sm);
 }
 .site-header :where(a):focus-visible,
+.hero :where(a):focus-visible,
 .income-section :where(a):focus-visible,
 .entry-panel :where(a):focus-visible,
 .site-footer :where(a):focus-visible {
@@ -363,6 +370,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .hero-points svg { width: 14px; height: 14px; flex: none; color: var(--lime); }
 
 .hero-visual { position: relative; min-height: 560px; overflow: hidden; }
+.hero-picture { position: absolute; inset: 0; display: block; }
 .hero-visual::after {
   position: absolute;
   inset: 0;

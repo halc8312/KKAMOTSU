@@ -223,15 +223,27 @@ export default function Home() {
           </div>
 
           <div className="hero-visual">
-            <img
-              src="/hero-driver.png"
-              alt="白い軽バンの前で荷物を持つ配送ドライバー"
-              width="1586"
-              height="992"
-              fetchPriority="high"
-              decoding="async"
-              sizes="(max-width: 980px) 100vw, 52vw"
-            />
+            <picture className="hero-picture">
+              <source
+                type="image/avif"
+                srcSet="/hero-driver-800.avif 800w, /hero-driver-1586.avif 1586w"
+                sizes="(max-width: 980px) 100vw, 52vw"
+              />
+              <source
+                type="image/webp"
+                srcSet="/hero-driver-800.webp 800w, /hero-driver-1586.webp 1586w"
+                sizes="(max-width: 980px) 100vw, 52vw"
+              />
+              <img
+                src="/hero-driver.png"
+                alt="白い軽バンの前で荷物を持つ配送ドライバー"
+                width="1586"
+                height="992"
+                fetchPriority="high"
+                decoding="async"
+                sizes="(max-width: 980px) 100vw, 52vw"
+              />
+            </picture>
             <div className="hero-badge">
               <span>ENTRY</span>
               <strong>応募前の相談だけでもOK</strong>
