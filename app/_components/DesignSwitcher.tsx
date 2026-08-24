@@ -1,13 +1,13 @@
 import Link from "next/link";
-import { themes, type ThemeId } from "../_data/recruitment";
+import { designs, designPath, type DesignId } from "../_data/recruitment";
 
-export function DesignSwitcher({ activeTheme }: { activeTheme: ThemeId }) {
+export function DesignSwitcher({ activeTheme }: { activeTheme: DesignId }) {
   return (
     <nav className="design-switcher" aria-label="採用サイトのデザイン案切り替え">
       <span className="design-switcher__label">デザイン案</span>
-      {themes.map((theme) => (
+      {designs.map((theme) => (
         <Link
-          href={theme.id === "reliable" ? "/" : `/designs/${theme.id}`}
+          href={designPath(theme.id)}
           key={theme.id}
           aria-current={activeTheme === theme.id ? "page" : undefined}
           aria-label={`デザイン${theme.letter}：${theme.japaneseName}`}
