@@ -1,5 +1,7 @@
 name: Deploy employee demo to GitHub Pages
 
+# Repository Settings > Pages must use GitHub Actions as the source.
+
 on:
   push:
     branches: [main]
