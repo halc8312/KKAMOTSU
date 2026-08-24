@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   applicationSteps,
   benefits,
@@ -241,7 +240,6 @@ export function RecruitmentSite({ themeId }: { themeId: ThemeId }) {
         <nav aria-label="フッターナビゲーション">
           {navItems.map(([href, label]) => <a key={href} href={href}>{label}</a>)}
         </nav>
-        <Link className="rs-back-to-compare" href="/">3案の比較一覧へ</Link>
         <p>© 2026 {company.name}. All Rights Reserved.</p>
       </footer>
     </div>

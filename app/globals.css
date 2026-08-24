@@ -603,7 +603,6 @@ h1, h2, h3, .rs-hero-lead, .rs-section-heading > p:last-child, summary {
   .design-switcher { gap: 3px; justify-content: space-between; padding-inline: 8px; }
   .design-switcher__label, .design-switcher__divider, .design-switcher a span { display: none; }
   .design-switcher a { min-width: 46px; min-height: 40px; justify-content: center; padding: 0 10px; }
-  .design-switcher a:first-of-type { min-width: 74px; }
 
   .comparison-page__top { position: static; grid-template-columns: minmax(0, 1fr); }
   .comparison-page__top .design-switcher { position: sticky; z-index: 100; top: 0; background: rgba(255, 255, 255, 0.97); }
