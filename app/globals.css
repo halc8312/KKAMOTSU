@@ -92,19 +92,24 @@
   --shadow-lg: 0 4px 8px rgba(4, 19, 38, 0.06), 0 28px 64px rgba(4, 19, 38, 0.14);
 
   --header-h: 76px;
+  --section-rail-h: 0px;
   --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
 }
 
 @media (max-width: 680px) {
-  :root { --header-h: 64px; }
+  :root {
+    --header-h: 64px;
+    --section-rail-h: 111px;
+  }
+
 }
 
 * { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
-  /* matches the header exactly + a breathing line */
-  scroll-padding-top: calc(var(--header-h) + var(--sp-5));
+  /* matches fixed navigation layers + a breathing line */
+  scroll-padding-top: calc(var(--header-h) + var(--section-rail-h) + var(--sp-5));
   -webkit-text-size-adjust: 100%;
 }
 
@@ -784,17 +789,13 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   position: absolute;
   z-index: 2;
   top: 50%;
-  right: calc(var(--sp-3) / -2 - 15px);
-  display: grid;
-  width: 30px;
-  height: 30px;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--navy-950);
-  color: var(--lime);
-  content: "→";
-  font-size: var(--fs-xs);
-  transform: translateY(-50%);
+  right: calc(var(--sp-3) / -2 - 5px);
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--olive);
+  border-bottom: 2px solid var(--olive);
+  content: "";
+  transform: translateY(-50%) rotate(-45deg);
 }
 .flow-number {
   color: var(--olive);
@@ -943,7 +944,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .day-heading { position: static; }
   .flow-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--sp-5); }
   .flow-grid li:nth-child(2)::after { display: none; }
-  .flow-grid li::after { right: calc(var(--sp-5) / -2 - 15px) !important; }
+  .flow-grid li::after { right: calc(var(--sp-5) / -2 - 5px) !important; }
 }
 
 @media (max-width: 980px) {
@@ -966,10 +967,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .brand-copy strong { font-size: var(--fs-md); }
   .brand-copy small { font-size: 9px; }
 
-  /* The old build hid every nav link below 980px and shipped no
-     menu control, so a phone had no way to reach any section.
-     A horizontally-scrollable rail keeps all six reachable with
-     no client JS. */
+  /* Keep every destination visible at once. A two-row grid avoids
+     the clipped final items and the hidden horizontal scroll state. */
   .header-nav { gap: 0; margin-left: auto; }
   .header-nav > a:not(.header-cta) { display: none; }
   .header-cta { min-height: 44px; gap: var(--sp-2); padding: 0 var(--sp-3); font-size: var(--fs-3xs); margin-left: 0; }
@@ -980,31 +979,33 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     left: 0;
     right: 0;
     z-index: 44;
-    display: flex;
-    gap: var(--sp-2);
-    overflow-x: auto;
+    display: grid;
+    height: var(--section-rail-h);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, 44px);
+    gap: 6px;
     border-bottom: 1px solid var(--line);
     background: rgba(245, 244, 239, 0.94);
-    padding: var(--sp-2) var(--sp-4);
+    padding: var(--sp-2) var(--sp-3);
     backdrop-filter: blur(12px);
-    scrollbar-width: none;
   }
-  .section-rail::-webkit-scrollbar { display: none; }
   .section-rail a {
     display: inline-flex;
     min-height: 44px;
-    flex: none;
+    min-width: 0;
     align-items: center;
+    justify-content: center;
     border: 1px solid var(--line);
-    border-radius: var(--r-pill);
+    border-radius: var(--r-sm);
     background: var(--white);
-    padding: 0 var(--sp-4);
+    padding: 0 var(--sp-2);
     color: var(--ink);
     font-size: var(--fs-2xs);
     font-weight: var(--fw-bold);
+    white-space: nowrap;
   }
 
-  .hero-copy { padding-top: calc(var(--header-h) + 60px + var(--sp-6)); }
+  .hero-copy { padding-top: calc(var(--header-h) + var(--section-rail-h) + var(--sp-6)); }
   .hero-lead br { display: none; }
   .hero-actions { align-items: stretch; flex-direction: column; gap: var(--sp-3); }
   .button { width: 100%; }
@@ -1029,11 +1030,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   .flow-grid { grid-template-columns: minmax(0, 1fr); }
   .flow-grid li:not(:last-child)::after,
   .flow-grid li:nth-child(2)::after {
-    display: grid;
+    display: block;
     top: auto;
     right: 50% !important;
-    bottom: calc(var(--sp-5) / -2 - 15px);
-    transform: translateX(50%) rotate(90deg);
+    bottom: calc(var(--sp-5) / -2 - 5px);
+    transform: translateX(50%) rotate(45deg);
   }
 
   .faq-list summary { grid-template-columns: 24px minmax(0, 1fr) 24px; gap: var(--sp-3); font-size: var(--fs-xs); }
