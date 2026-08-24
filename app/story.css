@@ -347,6 +347,10 @@
   gap: clamp(28px, 6vw, 92px);
 }
 
+.story-chapter-heading > div {
+  min-width: 0;
+}
+
 .story-chapter-number {
   color: var(--story-red);
   font-family: Georgia, "Times New Roman", serif;
@@ -954,11 +958,11 @@
   }
 
   .story-prologue {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .story-principles article > div {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .story-income-list article {
@@ -968,7 +972,7 @@
 
   .story-requirements,
   .story-faq {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .story-requirements-intro {
@@ -980,6 +984,11 @@
 @media (max-width: 700px) {
   .story-site {
     padding-bottom: calc(78px + env(safe-area-inset-bottom));
+  }
+
+  .story-site :where(h1, h2, h3) {
+    max-width: 100%;
+    overflow-wrap: anywhere;
   }
 
   .story-header {
@@ -1096,7 +1105,7 @@
   }
 
   .story-chapter-heading {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 30px;
   }
 
@@ -1238,7 +1247,7 @@
   }
 
   .story-requirements dl > div {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 8px;
     padding: 20px 0;
   }
@@ -1277,7 +1286,7 @@
 
   .story-entry {
     scroll-margin-top: calc(var(--compare-height) + 66px);
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 30px;
     padding: 72px 22px;
   }

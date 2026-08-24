@@ -111,7 +111,9 @@ function PortalHome() {
       <section className="portal-hero" aria-labelledby="portal-home-title">
         <div className="portal-hero__copy">
           <p className="portal-kicker">MAESHIRO RECRUIT PORTAL</p>
-          <h1 id="portal-home-title">知りたい情報から、選べる採用サイト。</h1>
+          <h1 id="portal-home-title">
+            知りたい情報から、<wbr />選べる採用サイト。
+          </h1>
           <p>
             前代運送の軽貨物ドライバー募集について、仕事内容・条件・応募方法の順番にかかわらず、
             気になるところから確認できます。
