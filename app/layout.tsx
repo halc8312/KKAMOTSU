@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
+import { pageUrl, publicAssetUrl, siteDescription, siteTitle, siteUrl } from "./_data/site";
 
 /* The site previously shipped no JP webfont and relied on
    "Hiragino Sans" / "Yu Gothic" / "Meiryo". Those resolve to three
@@ -18,45 +19,37 @@ const notoSansJP = Noto_Sans_JP({
   fallback: ["Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", "system-ui"],
 });
 
-const siteTitle = "前代運送｜軽貨物ドライバー採用";
-const siteDescription =
-  "前代運送の軽貨物ドライバー求人。沖縄県本島で、希望する稼働日数や働き方に合う案件をご案内します。";
-const siteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  "https://keikamotsu-driver-recruit.halcy.chatgpt.site"
-).replace(/\/$/, "");
-
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: siteTitle,
   description: siteDescription,
   alternates: {
-    canonical: siteUrl,
+    canonical: pageUrl(),
   },
   openGraph: {
-    title: "運ぶ仕事を、自分らしく。｜前代運送",
+    title: "前代運送｜採用サイト デザイン比較",
     description: siteDescription,
     type: "website",
     locale: "ja_JP",
-    url: siteUrl,
+    url: pageUrl(),
     images: [
       {
-        url: `${siteUrl}/og.png`,
+        url: publicAssetUrl("og.png"),
         width: 1200,
         height: 630,
-        alt: "運ぶ仕事を、自分らしく。 前代運送 軽貨物ドライバー採用",
+        alt: "前代運送 採用サイト デザインA・B・C比較",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "運ぶ仕事を、自分らしく。｜前代運送",
+    title: "前代運送｜採用サイト デザイン比較",
     description: siteDescription,
-    images: [`${siteUrl}/og.png`],
+    images: [publicAssetUrl("og.png")],
   },
   icons: {
-    icon: `${siteUrl}/favicon.svg`,
-    shortcut: `${siteUrl}/favicon.svg`,
+    icon: publicAssetUrl("favicon.svg"),
+    shortcut: publicAssetUrl("favicon.svg"),
   },
 };
 
