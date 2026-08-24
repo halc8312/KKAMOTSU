@@ -17,7 +17,8 @@ import {
 } from "../_data/recruitment";
 import { DesignSwitcher } from "./DesignSwitcher";
 import { DriverPicture } from "./DriverPicture";
-import { ArrowIcon, CheckIcon, MenuIcon } from "./Icons";
+import { ArrowIcon, CheckIcon } from "./Icons";
+import { MobileMenu } from "./MobileMenu";
 
 export function RecruitmentSite({ themeId }: { themeId: ThemeId }) {
   const theme = getTheme(themeId);
@@ -49,18 +50,7 @@ export function RecruitmentSite({ themeId }: { themeId: ThemeId }) {
             </a>
           </nav>
 
-          <details className="rs-mobile-menu">
-            <summary>
-              <MenuIcon />
-              <span>メニュー</span>
-            </summary>
-            <nav aria-label="モバイルナビゲーション">
-              {navItems.map(([href, label]) => (
-                <a key={href} href={href}>{label}</a>
-              ))}
-              <a className="rs-menu-entry" href="#entry">応募・相談</a>
-            </nav>
-          </details>
+          <MobileMenu />
         </header>
       </div>
 
