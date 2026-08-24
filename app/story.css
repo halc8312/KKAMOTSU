@@ -876,7 +876,8 @@
   }
 
   .story-cover h1 {
-    font-size: clamp(43px, 5.7vw, 64px);
+    /* 1120px境界で見出しが急拡大しないよう、基準ルールと同じ比率に揃える。 */
+    font-size: clamp(43px, 4.4vw, 64px);
   }
 
   .story-index {
