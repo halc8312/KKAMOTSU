@@ -34,20 +34,20 @@ const portalLinks: Array<{
   { page: "apply", href: "/designs/portal/apply", label: "応募・相談", eyebrow: "ENTRY" },
 ];
 
-const pageIntroductions: Record<Exclude<PortalPage, "home">, { eyebrow: string; title: string; copy: string }> = {
+const pageIntroductions: Record<Exclude<PortalPage, "home">, { eyebrow: string; titleLines: [string, string]; copy: string }> = {
   work: {
     eyebrow: "WORK GUIDE",
-    title: "仕事内容と一日の動きを、先に確認。",
+    titleLines: ["仕事内容と一日の流れ", "まとめて確認"],
     copy: "軽貨物配送の特徴と、稼働日の流れをまとめました。自分に合う働き方か、具体的に確認できます。",
   },
   conditions: {
     eyebrow: "CONDITION GUIDE",
-    title: "報酬・車両・経費を、まとめて確認。",
+    titleLines: ["報酬・車両・経費", "まとめて確認"],
     copy: "応募前に知っておきたい募集条件を一覧にしています。案件ごとの詳細は、相談時にご案内します。",
   },
   apply: {
     eyebrow: "ENTRY GUIDE",
-    title: "相談から稼働まで、4つのステップ。",
+    titleLines: ["相談から稼働まで", "4ステップ"],
     copy: "まずはメールで希望をお知らせください。仕事内容と条件を確認し、双方の合意後に稼働を始めます。",
   },
 };
@@ -99,7 +99,10 @@ function PortalIntro({ page }: { page: Exclude<PortalPage, "home"> }) {
   return (
     <section className="portal-intro" aria-labelledby="portal-page-title">
       <p className="portal-kicker">{introduction.eyebrow}</p>
-      <h1 id="portal-page-title">{introduction.title}</h1>
+      <h1 id="portal-page-title">
+        <span>{introduction.titleLines[0]}</span>
+        <span>{introduction.titleLines[1]}</span>
+      </h1>
       <p>{introduction.copy}</p>
     </section>
   );
@@ -112,7 +115,8 @@ function PortalHome() {
         <div className="portal-hero__copy">
           <p className="portal-kicker">MAESHIRO RECRUIT PORTAL</p>
           <h1 id="portal-home-title">
-            知りたい情報から、<wbr />選べる採用サイト。
+            <span>知りたい情報から</span>
+            <span>選べる採用サイト</span>
           </h1>
           <p>
             前代運送の軽貨物ドライバー募集について、仕事内容・条件・応募方法の順番にかかわらず、
@@ -167,7 +171,7 @@ function PortalHome() {
       <section className="portal-start" aria-labelledby="portal-start-title">
         <div>
           <p className="portal-kicker">BEFORE ENTRY</p>
-          <h2 id="portal-start-title">迷っている段階でも、ご相談ください。</h2>
+          <h2 id="portal-start-title">迷っている段階でも<wbr />ご相談ください</h2>
           <p>希望する曜日・日数・エリアを伺い、案件内容や条件をご説明します。</p>
         </div>
         <a className="portal-primary-link portal-primary-link--dark" href={entryMailto()}>
@@ -343,7 +347,7 @@ function PortalApply() {
 
       <section className="portal-entry-panel" aria-labelledby="portal-entry-title">
         <p className="portal-kicker">CONTACT</p>
-        <h2 id="portal-entry-title">まずは、希望の働き方をお聞かせください。</h2>
+        <h2 id="portal-entry-title">まずは<wbr />希望の働き方をお聞かせください</h2>
         <p>名前と希望する曜日・日数・エリアを添えて、メールでご連絡ください。</p>
         <a className="portal-primary-link portal-primary-link--dark" href={entryMailto()}>
           メールで応募・相談する

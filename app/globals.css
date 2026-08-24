@@ -332,9 +332,8 @@ h1, h2, h3, .rs-hero-lead, .rs-section-heading > p:last-child, summary {
 
 .rs-section { max-width: 1240px; margin: 0 auto; padding: var(--rs-section-y) var(--rs-gutter); }
 .rs-section-heading h2 { margin-top: 16px; font-size: clamp(34px, 4vw, 54px); font-weight: 900; letter-spacing: -0.015em; line-height: 1.3; }
-/* 横並びの左カラムに入る見出しは実幅が約380pxしかない。全幅用の級数の
-   ままだと「はじめやすく、続けやすい仕事へ。」が3行に割れて最終行が
-   「事へ。」だけになる。狭い枠に入る見出しは一段落とす。 */
+/* 横並びの左カラムに入る見出しは実幅が約380pxしかないため、
+   狭い枠に入る見出しは全幅用の級数から一段落とす。 */
 .rs-benefits > .rs-section-heading h2,
 .rs-day > .rs-section-heading h2,
 .rs-requirements-inner > .rs-section-heading h2,
@@ -693,7 +692,7 @@ h1, h2, h3, .rs-hero-lead, .rs-section-heading > p:last-child, summary {
 
   .rs-section { padding-inline: 20px; }
   .rs-section-heading h2 { font-size: clamp(31px, 9vw, 42px); }
-  /* 42.9px では「続けやすい」+「仕事へ。」が1行に収まらず3行になる。
+  /* 42.9px では「続けやすい」+「仕事へ」が1行に収まらず3行になる。
      文節が2つ載る級数まで落とす。 */
   .theme-bold .rs-section-heading h2 { font-size: clamp(30px, 8.6vw, 40px); }
   .rs-benefit-card { padding: 21px; }

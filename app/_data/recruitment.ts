@@ -22,8 +22,8 @@ export const themes: Array<{
     letter: "A",
     name: "NAVY STANDARD",
     japaneseName: "信頼・端正",
-    headline: "運ぶ仕事を、自分らしく。",
-    headlineParts: ["運ぶ仕事を、", "自分らしく。"],
+    headline: "運ぶ仕事を 自分らしく",
+    headlineParts: ["運ぶ仕事を", "自分らしく"],
     summary: "企業としての安心感をまっすぐ伝える、ネイビー×ライムの基準案。",
   },
   {
@@ -31,8 +31,8 @@ export const themes: Array<{
     letter: "B",
     name: "WARM EDITORIAL",
     japaneseName: "親しみ・温かさ",
-    headline: "はじめての配送に、ちゃんと安心を。",
-    headlineParts: ["はじめての配送に、", "ちゃんと安心を。"],
+    headline: "はじめての配送に ちゃんと安心を",
+    headlineParts: ["はじめての配送に", "ちゃんと安心を"],
     summary: "人柄と相談しやすさを伝える、サンド×ティールの編集記事風。",
   },
   {
@@ -40,8 +40,8 @@ export const themes: Array<{
     letter: "C",
     name: "ROUTE POSTER",
     japaneseName: "大胆・求人訴求",
-    headline: "まずは相談から。軽貨物ドライバーへ。",
-    headlineParts: ["まずは相談から。", "軽貨物ドライバーへ。"],
+    headline: "まずは相談から 軽貨物ドライバーへ",
+    headlineParts: ["まずは相談から", "軽貨物ドライバーへ"],
     summary: "仕事の要点を力強く見せる、黒×シグナルイエローのポスター案。",
   },
 ];
@@ -85,7 +85,7 @@ export const benefits = [
   {
     number: "01",
     label: "BEGINNER FRIENDLY",
-    title: "未経験から、迷わずスタート",
+    title: "未経験から迷わずスタート",
     copy: "荷物の扱い方や配送の進め方など、稼働前に必要なことを丁寧にご案内。はじめての一歩を支えます。",
   },
   {

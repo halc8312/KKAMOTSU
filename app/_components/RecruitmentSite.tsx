@@ -104,7 +104,7 @@ export function RecruitmentSite({ themeId }: { themeId: ThemeId }) {
         </section>
 
         <section className="rs-section rs-benefits" id="benefits">
-          <SectionHeading kicker="OUR ADVANTAGES" title="はじめやすく、続けやすい仕事へ。">
+          <SectionHeading kicker="OUR ADVANTAGES" title="はじめやすく続けやすい仕事へ">
             配送の仕事が初めてでも大丈夫。希望を聞くところから始めます。
           </SectionHeading>
           <div className="rs-benefit-grid">
@@ -120,7 +120,7 @@ export function RecruitmentSite({ themeId }: { themeId: ThemeId }) {
 
         <section className="rs-income" id="income">
           <div className="rs-income-inner">
-            <SectionHeading kicker="INCOME EXAMPLES" title="働き方で変わる、3つの売上実績例。" light>
+            <SectionHeading kicker="INCOME EXAMPLES" title="働き方で変わる3つの売上実績例" light>
               自分のペースも、しっかり稼働も。希望する働き方をご相談ください。
             </SectionHeading>
             <div className="rs-income-grid">
@@ -210,7 +210,7 @@ export function RecruitmentSite({ themeId }: { themeId: ThemeId }) {
         <section className="rs-entry" id="entry">
           <div>
             <p className="rs-section-kicker">ENTRY / CONTACT</p>
-            <h2>まずは、あなたの希望を聞かせてください。</h2>
+            <h2>まずは<wbr />あなたの希望を聞かせてください</h2>
             <p>仕事内容や費用を確認してから検討したい方も歓迎です。応募前の相談だけでも、気軽にご連絡ください。</p>
           </div>
           <a className="rs-button rs-button-primary rs-button-large" href={entryMailto()}>
