@@ -47,6 +47,13 @@ export function DashboardSite() {
         </a>
       </header>
 
+      <nav className="dashboard-mobile-nav" aria-label="要点ダッシュボード内のメニュー">
+        <a href="#dashboard-overview">要点</a>
+        <a href="#dashboard-income">収入例</a>
+        <a href="#dashboard-day">1日の流れ</a>
+        <a href="#dashboard-conditions">募集条件</a>
+      </nav>
+
       <main id="dashboard-top">
         <section className="dashboard-hero" aria-labelledby="dashboard-title">
           <div className="dashboard-hero__copy">
@@ -69,7 +76,7 @@ export function DashboardSite() {
           <DriverPicture className="dashboard-hero__picture" priority />
         </section>
 
-        <section className="dashboard-overview" aria-labelledby="dashboard-overview-title">
+        <section className="dashboard-overview" id="dashboard-overview" aria-labelledby="dashboard-overview-title">
           <div className="dashboard-section-heading">
             <p>QUICK OVERVIEW</p>
             <h2 id="dashboard-overview-title">募集条件の要点</h2>
