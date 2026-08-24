@@ -666,7 +666,7 @@ h1, h2, h3, .rs-hero-lead, .rs-section-heading > p:last-child, summary {
   .rs-brand-copy small { font-size: 9px; }
   .rs-mobile-menu summary span { display: none; }
   .rs-mobile-menu summary { width: 46px; justify-content: center; padding: 0; }
-  .recruitment-site main > section[id] { scroll-margin-top: 126px; }
+  .recruitment-site main > section[id] { scroll-margin-top: calc(var(--compare-height) + 76px); }
 
   /* 固定CTAバー(56px + 10px + セーフエリア)の下に「車両無料レンタル」が
      隠れていた。ヒーロー下端にバー分の逃げを持たせる。 */
