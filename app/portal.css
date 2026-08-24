@@ -225,6 +225,11 @@
   line-height: 1.25;
 }
 
+.portal-hero h1 span,
+.portal-intro h1 span {
+  display: block;
+}
+
 .portal-hero__copy > p:not(.portal-kicker) {
   max-width: 620px;
   margin-top: 26px;
@@ -1126,7 +1131,7 @@
   }
 
   .portal-intro h1 {
-    /* 38px固定では下層ページの17字見出しが360px幅で3行に割れる */
+    /* 各フレーズが2行のまま収まる級数まで、画面幅に応じて縮小する。 */
     font-size: clamp(30px, 8.6vw, 38px);
   }
 

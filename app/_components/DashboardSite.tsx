@@ -58,7 +58,7 @@ export function DashboardSite() {
         <section className="dashboard-hero" aria-labelledby="dashboard-title">
           <div className="dashboard-hero__copy">
             <p className="dashboard-eyebrow">LIGHT CARGO DRIVER / OKINAWA</p>
-            <h1 id="dashboard-title">仕事の条件を、<br />ひと目で。</h1>
+            <h1 id="dashboard-title">仕事の条件を<br />ひと目で</h1>
             <p className="dashboard-hero__lead">
               長い説明を読む前に、働く場所・報酬・車両・一日の流れを確認。
               前代運送の軽貨物ドライバー募集を、要点から比べられる採用サイトです。
@@ -177,7 +177,7 @@ export function DashboardSite() {
         <section className="dashboard-apply" aria-labelledby="dashboard-apply-title">
           <div className="dashboard-apply__intro">
             <p>APPLICATION FLOW</p>
-            <h2 id="dashboard-apply-title">条件が合いそうなら、<br />まずは相談から。</h2>
+            <h2 id="dashboard-apply-title">条件が合いそうなら<br />まずは相談から</h2>
             <p>応募前の質問だけでも構いません。希望の働き方をメールでお知らせください。</p>
             <a className="dashboard-button dashboard-button--light" href={mailto}>
               応募・相談メールを送る

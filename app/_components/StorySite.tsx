@@ -59,8 +59,8 @@ export function StorySite() {
             <p className="story-overline">DESIGN E / RECRUITMENT STORY</p>
             <p className="story-role">{company.role}</p>
             <h1 id="story-title">
-              はじめる前から、<br />
-              <em>働く一日まで。</em>
+              <span>始める前から</span>
+              <em>働く一日まで</em>
             </h1>
             <p className="story-cover-lead">
               仕事内容、働く時間、収入と費用、応募後の流れ。
@@ -100,7 +100,7 @@ export function StorySite() {
           <ChapterHeading
             number="01"
             label="BEFORE YOU START"
-            title={<>はじめる前に、<wbr />知ってほしいこと。</>}
+            title={<>始める前に<wbr />知ってほしいこと</>}
             id="story-before-title"
           />
 
@@ -131,7 +131,7 @@ export function StorySite() {
           <aside className="story-note" aria-label="車両と費用について">
             <CheckIcon />
             <div>
-              <strong>稼働中は、全員が車両を無料でレンタルできます。</strong>
+              <strong>稼働中は全員が車両を無料でレンタルできます</strong>
               <p>レンタル車は自家利用も可能です。燃料費・保険料・備品代は自己負担となります。</p>
             </div>
           </aside>
@@ -141,7 +141,7 @@ export function StorySite() {
           <ChapterHeading
             number="02"
             label="A DAY AT WORK"
-            title={<>働く一日を、<wbr />時間の順に。</>}
+            title={<>働く一日を<wbr />時間の順に</>}
             id="story-day-title"
             light
           />
@@ -166,7 +166,7 @@ export function StorySite() {
           <ChapterHeading
             number="03"
             label="INCOME & CONDITIONS"
-            title={<>収入と条件を、<wbr />曖昧にしない。</>}
+            title={<>収入と条件を<wbr />曖昧にしない</>}
             id="story-conditions-title"
           />
 
@@ -215,7 +215,7 @@ export function StorySite() {
           <ChapterHeading
             number="04"
             label="HOW TO START"
-            title={<>相談から稼働まで、<wbr />4つの場面。</>}
+            title={<>相談から稼働までの<wbr />4つの場面</>}
             id="story-apply-title"
           />
 
@@ -234,7 +234,7 @@ export function StorySite() {
           <div className="story-faq">
             <div>
               <p className="story-small-label">FAQ</p>
-              <h3>応募前に、もう少し確認したい方へ。</h3>
+              <h3>応募前に<wbr />もう少し確認したい方へ</h3>
             </div>
             <div className="story-faq-list">
               {faqs.map(([question, answer], index) => (
@@ -258,7 +258,7 @@ export function StorySite() {
           <p className="story-entry-number" aria-hidden="true">05</p>
           <div>
             <p className="story-small-label">ENTRY / CONTACT</p>
-            <h2 id="story-entry-title">次の一歩は、希望を話すことから。</h2>
+            <h2 id="story-entry-title">次の一歩は<wbr />希望を話すことから</h2>
             <p>
               仕事内容や費用を確認してから検討したい方も歓迎です。
               応募前の相談だけでも、気軽にご連絡ください。
