@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import {
   applicationSteps,
   benefits,
@@ -95,7 +97,12 @@ export function StorySite() {
         </nav>
 
         <section className="story-chapter story-before" id="before" aria-labelledby="story-before-title">
-          <ChapterHeading number="01" label="BEFORE YOU START" title="はじめる前に、知ってほしいこと。" id="story-before-title" />
+          <ChapterHeading
+            number="01"
+            label="BEFORE YOU START"
+            title={<>はじめる前に、<wbr />知ってほしいこと。</>}
+            id="story-before-title"
+          />
 
           <div className="story-prologue">
             <p className="story-prologue-lead">
@@ -131,7 +138,13 @@ export function StorySite() {
         </section>
 
         <section className="story-chapter story-day" id="day" aria-labelledby="story-day-title">
-          <ChapterHeading number="02" label="A DAY AT WORK" title="働く一日を、時間の順に。" id="story-day-title" light />
+          <ChapterHeading
+            number="02"
+            label="A DAY AT WORK"
+            title={<>働く一日を、<wbr />時間の順に。</>}
+            id="story-day-title"
+            light
+          />
           <p className="story-day-intro">
             宅配案件で働く場合の一例です。時間・休憩・配送件数は案件によって異なります。
           </p>
@@ -150,7 +163,12 @@ export function StorySite() {
         </section>
 
         <section className="story-chapter story-conditions" id="conditions" aria-labelledby="story-conditions-title">
-          <ChapterHeading number="03" label="INCOME & CONDITIONS" title="収入と条件を、曖昧にしない。" id="story-conditions-title" />
+          <ChapterHeading
+            number="03"
+            label="INCOME & CONDITIONS"
+            title={<>収入と条件を、<wbr />曖昧にしない。</>}
+            id="story-conditions-title"
+          />
 
           <div className="story-income-intro">
             <p>
@@ -194,7 +212,12 @@ export function StorySite() {
         </section>
 
         <section className="story-chapter story-apply" id="apply" aria-labelledby="story-apply-title">
-          <ChapterHeading number="04" label="HOW TO START" title="相談から稼働まで、4つの場面。" id="story-apply-title" />
+          <ChapterHeading
+            number="04"
+            label="HOW TO START"
+            title={<>相談から稼働まで、<wbr />4つの場面。</>}
+            id="story-apply-title"
+          />
 
           <ol className="story-steps">
             {applicationSteps.map(([number, title, description]) => (
@@ -276,7 +299,7 @@ function ChapterHeading({
 }: {
   number: string;
   label: string;
-  title: string;
+  title: ReactNode;
   id: string;
   light?: boolean;
 }) {
