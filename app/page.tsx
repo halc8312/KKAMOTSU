@@ -193,9 +193,9 @@ export default function Home() {
               軽貨物ドライバー募集
             </p>
             <h1>
-              運ぶほど、
+              運ぶ仕事を、
               <br />
-              <em>自由</em>になる。
+              <em>自分らしく</em>。
             </h1>
             <p className="hero-lead">
               未経験から、あなたらしい働き方へ。
