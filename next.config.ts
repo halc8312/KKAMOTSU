@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
         basePath: "/KKAMOTSU",
         trailingSlash: true,
         images: { unoptimized: true },
+        typescript: { tsconfigPath: "./tsconfig.pages.json" },
       }
     : {}),
 };
