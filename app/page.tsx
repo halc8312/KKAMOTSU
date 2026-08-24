@@ -106,6 +106,8 @@ const navItems = [
   ["#faq", "よくある質問"],
 ];
 
+const publicAssetPrefix = process.env.NEXT_PUBLIC_ASSET_PREFIX ?? "";
+
 /* Text glyphs (✓ ↗ →) render at a different weight, baseline and
    width in every JP font fallback. Inline SVG renders identically. */
 function CheckIcon() {
@@ -226,16 +228,16 @@ export default function Home() {
             <picture className="hero-picture">
               <source
                 type="image/avif"
-                srcSet="/hero-driver-800.avif 800w, /hero-driver-1586.avif 1586w"
+                srcSet={`${publicAssetPrefix}/hero-driver-800.avif 800w, ${publicAssetPrefix}/hero-driver-1586.avif 1586w`}
                 sizes="(max-width: 980px) 100vw, 52vw"
               />
               <source
                 type="image/webp"
-                srcSet="/hero-driver-800.webp 800w, /hero-driver-1586.webp 1586w"
+                srcSet={`${publicAssetPrefix}/hero-driver-800.webp 800w, ${publicAssetPrefix}/hero-driver-1586.webp 1586w`}
                 sizes="(max-width: 980px) 100vw, 52vw"
               />
               <img
-                src="/hero-driver.png"
+                src={`${publicAssetPrefix}/hero-driver.png`}
                 alt="白い軽バンの前で荷物を持つ配送ドライバー"
                 width="1586"
                 height="992"

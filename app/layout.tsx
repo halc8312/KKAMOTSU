@@ -21,24 +21,27 @@ const notoSansJP = Noto_Sans_JP({
 const siteTitle = "前代運送｜軽貨物ドライバー採用";
 const siteDescription =
   "前代運送の軽貨物ドライバー求人。沖縄県本島で、希望する稼働日数や働き方に合う案件をご案内します。";
-const siteUrl = "https://keikamotsu-driver-recruit.halcy.chatgpt.site";
+const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://keikamotsu-driver-recruit.halcy.chatgpt.site"
+).replace(/\/$/, "");
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: siteTitle,
   description: siteDescription,
   alternates: {
-    canonical: "/",
+    canonical: siteUrl,
   },
   openGraph: {
     title: "運ぶほど、自由になる。｜前代運送",
     description: siteDescription,
     type: "website",
     locale: "ja_JP",
-    url: "/",
+    url: siteUrl,
     images: [
       {
-        url: "/og.png",
+        url: `${siteUrl}/og.png`,
         width: 1200,
         height: 630,
         alt: "運ぶほど、自由になる。 前代運送 軽貨物ドライバー採用",
@@ -49,11 +52,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "運ぶほど、自由になる。｜前代運送",
     description: siteDescription,
-    images: ["/og.png"],
+    images: [`${siteUrl}/og.png`],
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: `${siteUrl}/favicon.svg`,
+    shortcut: `${siteUrl}/favicon.svg`,
   },
 };
 
