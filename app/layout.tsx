@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
+import "./dashboard.css";
+import "./story.css";
+import "./portal.css";
 import { pageUrl, publicAssetUrl, siteDescription, siteTitle, siteUrl } from "./_data/site";
 
 /* The site previously shipped no JP webfont and relied on
