@@ -1,6 +1,6 @@
-export const siteTitle = "前代運送｜採用サイト デザイン比較";
+export const siteTitle = "前代運送｜軽貨物ドライバー採用";
 export const siteDescription =
-  "前代運送の軽貨物ドライバー採用サイト、デザインA・B・Cの社内比較ページです。";
+  "前代運送の軽貨物ドライバー求人。沖縄県本島で、希望する稼働日数や働き方に合う案件をご案内します。";
 
 export const siteUrl = (
   process.env.NEXT_PUBLIC_SITE_URL ??
