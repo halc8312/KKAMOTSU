@@ -20,7 +20,7 @@ const notoSansJP = Noto_Sans_JP({
 
 const siteTitle = "前代運送｜軽貨物ドライバー採用";
 const siteDescription =
-  "前代運送の軽貨物ドライバー求人。希望する稼働日数やエリアを伺い、あなたに合う働き方をご案内します。";
+  "前代運送の軽貨物ドライバー求人。沖縄県本島で、希望する稼働日数や働き方に合う案件をご案内します。";
 const siteUrl = "https://keikamotsu-driver-recruit.halcy.chatgpt.site";
 
 export const metadata: Metadata = {
