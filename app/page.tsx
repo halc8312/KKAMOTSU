@@ -48,7 +48,7 @@ const schedule = [
   ["10:00", "午前の配送", "ルートに沿って、無理のないペースで配送します。"],
   ["12:00", "休憩", "配送状況を見ながら、自分のタイミングでひと息。"],
   ["13:00", "午後の配送", "再度荷物を確認し、担当先へ配送します。"],
-  ["19:00", "業務報告・終了", "配送状況を報告して、その日の仕事は終了です。"],
+  ["19:30", "業務報告・終了", "配送状況を報告して、その日の仕事は終了です。"],
 ];
 
 const requirements = [
@@ -432,7 +432,7 @@ export default function Home() {
           </div>
           <a
             className="button button-primary button-large"
-            href="mailto:recruit@zendai-unso.example?subject=%E5%89%8D%E4%BB%A3%E9%81%8B%E9%80%81%E3%83%BB%E8%BB%BD%E8%B2%A8%E7%89%A9%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E5%BF%9C%E5%8B%9F%E7%9B%B8%E8%AB%87"
+            href="mailto:recruit@maeshiro-unso.example?subject=%E5%89%8D%E4%BB%A3%E9%81%8B%E9%80%81%E3%83%BB%E8%BB%BD%E8%B2%A8%E7%89%A9%E3%83%89%E3%83%A9%E3%82%A4%E3%83%90%E3%83%BC%E5%BF%9C%E5%8B%9F%E7%9B%B8%E8%AB%87"
           >
             応募相談メールを開く
             <ArrowIcon />
