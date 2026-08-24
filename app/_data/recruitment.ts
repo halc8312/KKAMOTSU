@@ -1,4 +1,5 @@
 export type ThemeId = "reliable" | "friendly" | "bold";
+export type DesignId = ThemeId | "dashboard" | "story" | "portal";
 
 export const company = {
   name: "前代運送",
@@ -44,6 +45,41 @@ export const themes: Array<{
     summary: "仕事の要点を力強く見せる、黒×シグナルイエローのポスター案。",
   },
 ];
+
+export const designs: Array<{
+  id: DesignId;
+  letter: string;
+  name: string;
+  japaneseName: string;
+  summary: string;
+}> = [
+  ...themes,
+  {
+    id: "dashboard",
+    letter: "D",
+    name: "JOB DASHBOARD",
+    japaneseName: "要点一覧",
+    summary: "仕事選びに必要な情報を、短く高密度に確認できるダッシュボード型。",
+  },
+  {
+    id: "story",
+    letter: "E",
+    name: "WORK STORY",
+    japaneseName: "ストーリー",
+    summary: "応募前の疑問から働く一日まで、章を追って読める編集記事型。",
+  },
+  {
+    id: "portal",
+    letter: "F",
+    name: "RECRUIT PORTAL",
+    japaneseName: "採用ポータル",
+    summary: "仕事内容・条件・応募方法を、知りたい順に選べる複数ページ型。",
+  },
+];
+
+export function designPath(id: DesignId) {
+  return id === "reliable" ? "/" : `/designs/${id}`;
+}
 
 export const benefits = [
   {

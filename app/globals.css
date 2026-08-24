@@ -113,6 +113,12 @@ h1, h2, h3, .rs-hero-lead, .rs-section-heading > p:last-child, summary {
 /* 42px はタップ領域の下限割れ。デスクトップでも指で触られる。 */
 .design-switcher a { min-height: 44px; }
 
+@media (max-width: 1180px) {
+  .design-switcher__label { display: none; }
+  .design-switcher a { gap: 5px; padding-inline: 9px; }
+  .design-switcher a span { font-size: 10px; }
+}
+
 /* ==========================================================
    Comparison index
    ========================================================== */
@@ -632,12 +638,12 @@ h1, h2, h3, .rs-hero-lead, .rs-section-heading > p:last-child, summary {
 }
 
 @media (max-width: 680px) {
-  :root { --compare-height: 50px; }
-  .design-switcher { gap: 3px; justify-content: space-between; padding-inline: 8px; }
+  :root { --compare-height: 102px; }
+  .design-switcher { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-content: center; gap: 4px; padding: 5px 8px; }
   .design-switcher__label, .design-switcher__divider { display: none; }
-  /* 40px はタップ領域の下限割れ。またスマホで span を消すと A/B/C の
+  /* 40px はタップ領域の下限割れ。またスマホで span を消すと A〜F の
      文字だけが残り、何を選んでいるのか分からないまま投票することになる。 */
-  .design-switcher a { min-width: 44px; min-height: 44px; justify-content: center; padding: 0 8px; gap: 5px; }
+  .design-switcher a { width: 100%; min-width: 0; min-height: 44px; justify-content: center; padding: 0 5px; gap: 5px; }
   .design-switcher a span { font-size: 10px; letter-spacing: 0; }
 
   .comparison-page__top { position: static; grid-template-columns: minmax(0, 1fr); }
@@ -660,7 +666,7 @@ h1, h2, h3, .rs-hero-lead, .rs-section-heading > p:last-child, summary {
   .rs-brand-copy small { font-size: 9px; }
   .rs-mobile-menu summary span { display: none; }
   .rs-mobile-menu summary { width: 46px; justify-content: center; padding: 0; }
-  .recruitment-site main > section[id] { scroll-margin-top: 126px; }
+  .recruitment-site main > section[id] { scroll-margin-top: calc(var(--compare-height) + 76px); }
 
   /* 固定CTAバー(56px + 10px + セーフエリア)の下に「車両無料レンタル」が
      隠れていた。ヒーロー下端にバー分の逃げを持たせる。 */
