@@ -149,7 +149,8 @@
 }
 
 .portal-nav__link small {
-  color: #6d8296;
+  /* 9px で 3.97:1(白地) / 3.57:1(淡青地) と AA 未満だった */
+  color: #54697c;
   font-size: 9px;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -363,7 +364,7 @@
 }
 
 .portal-hub-card__number {
-  color: #b2d4f6;
+  color: #5490c9;
   font-size: 38px;
   font-weight: 800;
   line-height: 1;
@@ -522,7 +523,7 @@
 }
 
 .portal-benefit-card > span {
-  color: #a9d0f8;
+  color: #5490c9;
   font-size: 40px;
   font-weight: 800;
   line-height: 1;
@@ -730,7 +731,7 @@
 }
 
 .portal-step-grid li > span {
-  color: #a9d0f8;
+  color: #5490c9;
   font-size: 36px;
   font-weight: 800;
   line-height: 1;
@@ -1030,7 +1031,7 @@
 
   .portal-hero h1 {
     margin-top: 14px;
-    font-size: clamp(35px, 10vw, 46px);
+    font-size: clamp(31px, 9vw, 46px);
     line-height: 1.3;
   }
 
@@ -1112,7 +1113,8 @@
   }
 
   .portal-intro h1 {
-    font-size: 38px;
+    /* 38px固定では下層ページの17字見出しが360px幅で3行に割れる */
+    font-size: clamp(30px, 8.6vw, 38px);
   }
 
   .portal-intro > p:last-child {
