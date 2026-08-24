@@ -497,6 +497,8 @@ h1, h2, h3, .rs-hero-lead, .rs-section-heading > p:last-child, summary {
 .theme-friendly .rs-flow-grid li { border: 0; border-radius: 28px; box-shadow: 0 12px 36px rgba(33, 74, 70, 0.08); }
 .theme-friendly .rs-flow-number { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: var(--rs-accent); color: #ffffff; font-size: 15px; }
 .theme-friendly .rs-faq { background: #f4ead8; }
+.theme-friendly .rs-faq-list summary i::before,
+.theme-friendly .rs-faq-list summary i::after { background: #f5a68e; }
 .theme-friendly .rs-entry { border-radius: 36px; background: #0c4b4a; }
 .theme-friendly .rs-button { border-radius: 999px; }
 .theme-friendly .rs-footer { background: #0c4b4a; }
