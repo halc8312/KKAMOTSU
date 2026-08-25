@@ -9,6 +9,10 @@ export function DesignSwitcher({ activeTheme }: { activeTheme: DesignId }) {
         <Link
           href={designPath(theme.id)}
           key={theme.id}
+          /* 既定の prefetch は、1ページ表示するたびに他5案のHTMLとRSCペイロード
+             （合計 約340KB / 9リクエスト）をモバイル回線で先読みしてしまう。
+             デザイン切替は稀な操作なので、タップされてから取りに行く。 */
+          prefetch={false}
           aria-current={activeTheme === theme.id ? "page" : undefined}
           aria-label={`デザイン${theme.letter}：${theme.japaneseName}`}
         >

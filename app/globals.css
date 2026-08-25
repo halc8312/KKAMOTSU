@@ -8,6 +8,9 @@
   --neutral-100: #f1f3f4;
   --white: #ffffff;
   --compare-height: 54px;
+  /* 各デザインの固定ヘッダーを、デザイン切替バーの下にぶら下げるための
+     オフセット。切替バーを固定しないスマホでは 0 になる。 */
+  --sticky-offset: var(--compare-height);
   --font-sans: var(--font-noto-sans-jp), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, system-ui, sans-serif;
 }
 
@@ -274,8 +277,14 @@ h1, h2, h3, .rs-hero-lead, .rs-section-heading > p:last-child, summary {
   --rs-radius: 0;
 }
 
-.rs-top-stack { position: sticky; z-index: 100; top: 0; }
+/* D〜F案と同じ構造。切替バーを最上段に固定し、ヘッダーはその下にぶら下げる。
+   ヘッダーを切替バーの子にすると、切替バーを非固定にしたときに
+   ヘッダーの sticky が親の高さでしか効かなくなる。 */
+.recruitment-site > .design-switcher { position: sticky; z-index: 110; top: 0; }
 .rs-header {
+  position: sticky;
+  z-index: 100;
+  top: var(--sticky-offset);
   display: flex;
   min-height: 72px;
   align-items: center;
@@ -637,7 +646,7 @@ h1, h2, h3, .rs-hero-lead, .rs-section-heading > p:last-child, summary {
 }
 
 @media (max-width: 680px) {
-  :root { --compare-height: 102px; }
+  :root { --compare-height: 102px; --sticky-offset: 0px; }
   .design-switcher { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-content: center; gap: 4px; padding: 5px 8px; }
   .design-switcher__label, .design-switcher__divider { display: none; }
   /* 40px はタップ領域の下限割れ。またスマホで span を消すと A〜F の
@@ -665,7 +674,14 @@ h1, h2, h3, .rs-hero-lead, .rs-section-heading > p:last-child, summary {
   .rs-brand-copy small { font-size: 9px; }
   .rs-mobile-menu summary span { display: none; }
   .rs-mobile-menu summary { width: 46px; justify-content: center; padding: 0; }
-  .recruitment-site main > section[id] { scroll-margin-top: calc(var(--compare-height) + 76px); }
+  .recruitment-site main > section[id] { scroll-margin-top: calc(var(--sticky-offset) + 76px); }
+
+  /* 切替バー(102px)とヘッダー(64px)を両方固定すると、iPhone SE では
+     常時 167px = 画面の 29% がヘッダーで埋まる。下部の固定CTA(66px)を
+     足すと 41%。切替バーはデザイン比較用の仮UIなので、スマホでは
+     ページ先頭に置いたまま本文と一緒にスクロールさせ、固定するのは
+     ハンバーガーメニューを持つヘッダーだけにする。 */
+  .recruitment-site > .design-switcher { position: static; }
 
   /* 固定CTAバー(56px + 10px + セーフエリア)の下に「車両無料レンタル」が
      隠れていた。ヒーロー下端にバー分の逃げを持たせる。 */

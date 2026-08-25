@@ -26,7 +26,7 @@
 .portal-header {
   position: sticky;
   z-index: 90;
-  top: var(--compare-height);
+  top: var(--sticky-offset);
   border-bottom: 1px solid var(--portal-border);
   background: rgba(255, 255, 255, 0.97);
   box-shadow: 0 8px 28px rgba(8, 42, 73, 0.06);
@@ -965,6 +965,9 @@
 }
 
 @media (max-width: 680px) {
+  /* 切替バーはスマホでは固定しない（globals.css の同名の判断と揃える）。 */
+  .portal-site > .design-switcher { position: static; }
+
   .portal-header__bar {
     min-height: 62px;
     gap: 12px;
