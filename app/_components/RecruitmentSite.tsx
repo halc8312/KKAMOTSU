@@ -29,30 +29,29 @@ export function RecruitmentSite({ themeId }: { themeId: ThemeId }) {
         本文へ移動
       </a>
 
-      <div className="rs-top-stack">
-        <DesignSwitcher activeTheme={theme.id} />
-        <header className="rs-header">
-          <a className="rs-brand" href="#top" aria-label={`${company.name} 採用サイト トップへ`}>
-            <span className="rs-brand-mark" aria-hidden="true">前</span>
-            <span className="rs-brand-copy">
-              <strong>{company.name}</strong>
-              <small>{company.reading} / RECRUIT</small>
-            </span>
+      <DesignSwitcher activeTheme={theme.id} />
+
+      <header className="rs-header">
+        <a className="rs-brand" href="#top" aria-label={`${company.name} 採用サイト トップへ`}>
+          <span className="rs-brand-mark" aria-hidden="true">前</span>
+          <span className="rs-brand-copy">
+            <strong>{company.name}</strong>
+            <small>{company.reading} / RECRUIT</small>
+          </span>
+        </a>
+
+        <nav className="rs-desktop-nav" aria-label="メインナビゲーション">
+          {navItems.slice(0, 4).map(([href, label]) => (
+            <a key={href} href={href}>{label}</a>
+          ))}
+          <a className="rs-header-cta" href="#entry">
+            まずは相談する
+            <ArrowIcon />
           </a>
+        </nav>
 
-          <nav className="rs-desktop-nav" aria-label="メインナビゲーション">
-            {navItems.slice(0, 4).map(([href, label]) => (
-              <a key={href} href={href}>{label}</a>
-            ))}
-            <a className="rs-header-cta" href="#entry">
-              まずは相談する
-              <ArrowIcon />
-            </a>
-          </nav>
-
-          <MobileMenu />
-        </header>
-      </div>
+        <MobileMenu />
+      </header>
 
       <main id="main-content">
         <section className="rs-hero" id="top">

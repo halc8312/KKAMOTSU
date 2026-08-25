@@ -40,7 +40,7 @@
 .story-header {
   position: sticky;
   z-index: 160;
-  top: var(--compare-height);
+  top: var(--sticky-offset);
   display: grid;
   min-height: 76px;
   grid-template-columns: auto 1fr auto;
@@ -344,7 +344,7 @@
 }
 
 .story-chapter {
-  scroll-margin-top: calc(var(--compare-height) + 76px);
+  scroll-margin-top: calc(var(--sticky-offset) + 76px);
 }
 
 .story-before,
@@ -633,7 +633,7 @@
 
 .story-requirements-intro {
   position: sticky;
-  top: calc(var(--compare-height) + 104px);
+  top: calc(var(--sticky-offset) + 104px);
   align-self: start;
 }
 
@@ -792,7 +792,7 @@
 }
 
 .story-entry {
-  scroll-margin-top: calc(var(--compare-height) + 76px);
+  scroll-margin-top: calc(var(--sticky-offset) + 76px);
   display: grid;
   grid-template-columns: minmax(120px, 0.2fr) minmax(0, 0.55fr) minmax(230px, 0.25fr);
   align-items: center;
@@ -1107,7 +1107,7 @@
   }
 
   .story-chapter {
-    scroll-margin-top: calc(var(--compare-height) + 66px);
+    scroll-margin-top: calc(var(--sticky-offset) + 66px);
   }
 
   .story-before,
@@ -1298,7 +1298,7 @@
   }
 
   .story-entry {
-    scroll-margin-top: calc(var(--compare-height) + 66px);
+    scroll-margin-top: calc(var(--sticky-offset) + 66px);
     grid-template-columns: minmax(0, 1fr);
     gap: 30px;
     padding: 72px 22px;
@@ -1376,6 +1376,12 @@
     display: block;
     margin-right: 2px;
   }
+}
+
+@media (max-width: 680px) {
+  /* 切替バーはスマホでは固定しない（globals.css の同名の判断と揃える）。
+     ブレークポイントは --sticky-offset が切り替わる 680px に合わせる。 */
+  .story-site > .design-switcher { position: static; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -20,7 +20,7 @@
 .dashboard-header {
   position: sticky;
   z-index: 120;
-  top: var(--compare-height);
+  top: var(--sticky-offset);
   display: grid;
   min-height: 70px;
   grid-template-columns: auto 1fr auto;
@@ -104,7 +104,7 @@
 .dashboard-button--light { background: #ffffff; }
 
 .dashboard-site main { overflow: hidden; }
-.dashboard-site main > section[id] { scroll-margin-top: calc(var(--compare-height) + 82px); }
+.dashboard-site main > section[id] { scroll-margin-top: calc(var(--sticky-offset) + 82px); }
 
 .dashboard-hero {
   display: grid;
@@ -252,6 +252,11 @@
 
 @media (max-width: 680px) {
   .dashboard-site { padding-bottom: 76px; }
+  /* 切替バーはスマホでは固定しない（globals.css の同名の判断と揃える）。 */
+  .dashboard-site > .design-switcher { position: static; }
+  /* 見出しは左にラベル・右にタイトルの2カラム。320px では
+     タイトルが 168px に潰れて右端に寄るので、スマホでは縦に積む。 */
+  .dashboard-section-heading { flex-direction: column; align-items: flex-start; gap: 0; }
   .dashboard-header { min-height: 64px; padding: 7px 16px; }
   .dashboard-brand__mark { width: 36px; height: 36px; font-size: 18px; }
   .dashboard-brand b { font-size: 15px; }
