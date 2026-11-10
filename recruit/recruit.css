@@ -2,6 +2,7 @@
 .jobs-hero-copy { min-width: 0; padding: var(--space-8); }
 .jobs-hero-copy h2 { margin: 0 0 var(--space-4); font-size: var(--font-section); font-weight: 500; line-height: 1.5; }
 .jobs-hero-copy p { margin-bottom: var(--space-6); color: var(--muted); }
+.jobs-hero-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
 .jobs-photo { position: relative; min-width: 0; margin: 0; }
 .jobs-photo img { position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: 65% center; }
 .jobs-photo figcaption { position: absolute; right: var(--space-2); bottom: var(--space-2); padding: var(--space-1) var(--space-2); color: var(--white); background: rgba(5, 31, 43, 0.72); border-radius: var(--radius-control); font-size: var(--font-caption); line-height: 1.5; }
@@ -66,6 +67,7 @@
 @media (max-width: 760px) {
   .jobs-hero { grid-template-columns: minmax(0, 1fr); }
   .jobs-hero-copy { padding: var(--space-6); }
+  .jobs-hero-actions { flex-direction: column; }
   .jobs-photo { aspect-ratio: 8 / 5; }
   .jobs-facts { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
   .jobs-facts > div { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-4); padding: var(--space-4); }

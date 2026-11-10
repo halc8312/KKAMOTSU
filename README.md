@@ -67,7 +67,9 @@ GitHubへの変更は、現在のChatGPT SitesやXServerに自動反映される
 
 ## 現在の掲載内容とデザイン
 
-- ロゴ: `assets/maeshiro-logo-light.png`。縦横比を維持し、全ページで共通使用。
+- ロゴ: `assets/maeshiro-logo-light.webp`（表示用の軽量版）。元画像は `assets/maeshiro-logo-light.png`。縦横比を維持し、全ページで共通使用。
+- ファビコン: `assets/favicon.png`（ロゴから作成）。
+- LINEボタン: 下層ページのヘッダーと、募集ページの紹介ブロック・応募の流れに配置。
 - ホーム写真: `assets/maeshiro-hero-clear.webp`。ロゴに重なっていた電柱・電線を除去済み。
 - ホームコピー: 「自由 × 責任 × 信頼」。コンパクトなゴシック体、ごく控えめなゴールドと透け感。
 - ホームは余白・読みやすさを保ちながら一画面に収める方針。小画面や文字拡大では自然なスクロールを許可。
