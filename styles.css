@@ -589,6 +589,7 @@ h2 {
   max-width: none;
 }
 .photo-home .intro-copy { min-width: 0; }
+.photo-home .intro-label { margin-bottom: var(--space-1); color: var(--muted); }
 .photo-home .intro-lead { margin-bottom: var(--space-3); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.45; }
 .photo-home .intro-benefits { display: flex; flex-wrap: wrap; gap: 0 var(--space-4); font-size: var(--font-body); font-weight: 500; line-height: 1.5; }
 .photo-home .intro-benefits li { display: block; }

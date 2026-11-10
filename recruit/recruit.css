@@ -10,6 +10,7 @@
 .jobs-section > .section-shell { padding-top: var(--space-8); border-top: 1px solid var(--line); }
 .jobs-heading { margin-bottom: var(--space-6); }
 .jobs-heading h2 { font-size: var(--font-card); }
+.jobs-lead { max-width: 44em; margin: var(--space-4) 0 0; color: var(--muted); }
 .jobs-facts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-4); margin: 0; }
 .jobs-facts > div { min-width: 0; padding: var(--space-6); background: var(--paper); border-radius: var(--radius-card); }
 .jobs-facts dt { margin-bottom: var(--space-2); color: var(--muted); font-size: var(--font-small); }
@@ -50,6 +51,14 @@
 .jobs-flow li { min-width: 0; }
 .jobs-step { display: block; margin-bottom: var(--space-3); color: var(--muted); font-size: var(--font-caption); }
 .jobs-flow p { margin: 0; color: var(--muted); font-size: var(--font-small); }
+.jobs-faq { margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--line); }
+.jobs-faq-item { border-bottom: 1px solid var(--line); }
+.jobs-faq-item:first-of-type { border-top: 1px solid var(--line); }
+.jobs-faq-item > summary { min-height: var(--control-height); display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-3) 0; font-weight: 500; list-style: none; cursor: pointer; touch-action: manipulation; }
+.jobs-faq-item > summary::-webkit-details-marker { display: none; }
+.jobs-faq-item > summary:focus-visible { outline: 2px solid var(--blue); outline-offset: var(--space-1); border-radius: var(--radius-control); }
+.jobs-faq-item[open] > summary .icon { transform: rotate(180deg); }
+.jobs-faq-item > p { max-width: 48em; margin: 0; padding: 0 var(--space-8) var(--space-4) 0; color: var(--muted); font-size: var(--font-small); }
 .jobs-consult { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-6); margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--line); }
 .jobs-consult h3 { margin-bottom: var(--space-1); }
 .jobs-consult p { margin: 0; color: var(--muted); }

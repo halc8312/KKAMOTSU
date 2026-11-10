@@ -1,4 +1,5 @@
 {
+  "siteUrl": "https://maeshiro-unso.halcy.chatgpt.site",
   "pages": [
     { "path": "activity", "label": "活動の記録", "english": "ACTIVITY", "published": false },
     { "path": "company", "label": "会社情報", "english": "COMPANY", "published": true },

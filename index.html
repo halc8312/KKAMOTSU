@@ -3,32 +3,75 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>マエシロ運送 公式サイト｜沖縄の宅配・個建配送</title>
+    <title>マエシロ運送｜沖縄・那覇の宅配・軽貨物配送とドライバー募集</title>
     <meta
       name="description"
-      content="沖縄の宅配・個建配送ならマエシロ運送へ。配送に関するさまざまなご相談と、ドライバー採用のお問い合わせを受け付けています。"
+      content="沖縄県那覇市のマエシロ運送の公式サイトです。宅配・個建配送のご相談と、軽貨物ドライバーの募集（車両無料貸出・FC料固定のキャンペーン中）をご案内します。"
     />
     <meta name="theme-color" content="#fffdf8" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="マエシロ運送" />
-    <meta property="og:title" content="マエシロ運送 公式サイト｜沖縄の宅配・個建配送" />
-    <meta property="og:description" content="沖縄の宅配・個建配送ならマエシロ運送へ。配送に関するさまざまなご相談と、ドライバー採用のお問い合わせを受け付けています。" />
+    <meta property="og:title" content="マエシロ運送｜沖縄・那覇の宅配・軽貨物配送とドライバー募集" />
+    <meta property="og:description" content="沖縄県那覇市のマエシロ運送の公式サイトです。宅配・個建配送のご相談と、軽貨物ドライバーの募集（車両無料貸出・FC料固定のキャンペーン中）をご案内します。" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:image" content="%SITE_URL%/assets/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="%SITE_URL%/" />
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
     <link rel="stylesheet" href="/styles.css" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "マエシロ運送",
-        "telephone": "+81-80-6492-1719",
-        "address": {
-          "@type": "PostalAddress",
-          "postalCode": "903-0802",
-          "addressRegion": "沖縄県",
-          "addressLocality": "那覇市",
-          "streetAddress": "首里大名町2-38"
-        },
-        "areaServed": "沖縄県"
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "@id": "%SITE_URL%/#business",
+            "name": "マエシロ運送",
+            "alternateName": "Maeshiro Transport",
+            "description": "沖縄県那覇市の運送事業者です。宅配・企業配送を行い、軽貨物ドライバーを募集しています。",
+            "url": "%SITE_URL%/",
+            "logo": "%SITE_URL%/assets/maeshiro-logo-light.png",
+            "image": "%SITE_URL%/assets/og-image.jpg",
+            "telephone": "+81-80-6492-1719",
+            "address": {
+              "@type": "PostalAddress",
+              "postalCode": "903-0802",
+              "addressCountry": "JP",
+              "addressRegion": "沖縄県",
+              "addressLocality": "那覇市",
+              "streetAddress": "首里大名町2-38"
+            },
+            "areaServed": "沖縄県"
+          },
+          {
+            "@type": "WebSite",
+            "@id": "%SITE_URL%/#website",
+            "url": "%SITE_URL%/",
+            "name": "マエシロ運送",
+            "alternateName": "Maeshiro Transport",
+            "inLanguage": "ja",
+            "publisher": {
+              "@id": "%SITE_URL%/#business"
+            }
+          },
+          {
+            "@type": "WebPage",
+            "@id": "%SITE_URL%/#webpage",
+            "url": "%SITE_URL%/",
+            "name": "マエシロ運送｜沖縄・那覇の宅配・軽貨物配送とドライバー募集",
+            "description": "沖縄県那覇市のマエシロ運送の公式サイトです。宅配・個建配送のご相談と、軽貨物ドライバーの募集（車両無料貸出・FC料固定のキャンペーン中）をご案内します。",
+            "inLanguage": "ja",
+            "isPartOf": {
+              "@id": "%SITE_URL%/#website"
+            },
+            "about": {
+              "@id": "%SITE_URL%/#business"
+            }
+          }
+        ]
       }
     </script>
   </head>
@@ -48,6 +91,9 @@
         <img
           class="hero-image"
           src="assets/maeshiro-hero-clear.webp"
+          srcset="assets/maeshiro-hero-clear-960.webp 960w, assets/maeshiro-hero-clear.webp 1827w"
+          sizes="100vw"
+          fetchpriority="high"
           alt="沖縄の街を走る軽貨物車両のイメージ"
           width="1827"
           height="861"
@@ -70,6 +116,7 @@
           <div class="intro-panel">
             <div class="intro-content">
               <div class="intro-copy">
+                <p class="intro-label">沖縄の軽貨物ドライバー募集</p>
                 <h2 class="intro-lead" id="intro-title">初めての配送に<br /><strong>ちゃんと安心を</strong></h2>
                 <ul class="intro-benefits" role="list" aria-label="ドライバー募集のキャンペーン">
                   <li><span>車両無料貸出</span></li>
