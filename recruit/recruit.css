@@ -51,6 +51,7 @@
 .jobs-flow li { min-width: 0; }
 .jobs-step { display: block; margin-bottom: var(--space-3); color: var(--muted); font-size: var(--font-caption); }
 .jobs-flow p { margin: 0; color: var(--muted); font-size: var(--font-small); }
+.jobs-requirements + .jobs-note { margin-bottom: 0; }
 .jobs-faq { margin-top: var(--space-8); padding-top: var(--space-8); border-top: 1px solid var(--line); }
 .jobs-faq-item { border-bottom: 1px solid var(--line); }
 .jobs-faq-item:first-of-type { border-top: 1px solid var(--line); }

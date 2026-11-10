@@ -44,8 +44,19 @@ for (const basePath of ["", "/KKAMOTSU"]) {
       const types = JSON.parse(jsonLd)["@graph"].map((item) => item["@type"]);
       assert.ok(types.includes("LocalBusiness") && types.includes("WebPage"), `${route}: structured data`);
       assert.equal(types.includes("BreadcrumbList"), route !== "", `${route}: breadcrumb data`);
-      // Applicants pay an FC fee, which Google's job posting policy does not allow.
-      assert.ok(!types.includes("JobPosting"), `${route}: JobPosting must not be added`);
+      // Google allows job posting data only on the page that presents that single job.
+      assert.equal(types.includes("JobPosting"), route === "recruit/", `${route}: job posting data`);
+      if (route === "recruit/") {
+        const job = JSON.parse(jsonLd)["@graph"].find((item) => item["@type"] === "JobPosting");
+        for (const required of ["title", "description", "datePosted", "hiringOrganization", "jobLocation"]) assert.ok(job[required], `job posting ${required}`);
+        assert.match(job.datePosted, /^\d{4}-\d{2}-\d{2}$/);
+        assert.equal(job.employmentType, "CONTRACTOR");
+        // The posting must say the same thing as the page: check each sentence is visible in the body.
+        const body = html.split("</head>")[1].replace(/<[^>]+>/g, "");
+        for (const sentence of job.description.replace(/<[^>]+>/g, "\n").split(/\n|(?<=。)/).filter((text) => text.trim().length > 12)) {
+          assert.ok(body.includes(sentence.trim()), `job posting text not on page: ${sentence}`);
+        }
+      }
       assert.equal(html.includes('<meta name="robots" content="noindex" />'), Boolean(basePath), `${route}: noindex`);
     }
     assert.ok(existsSync(path.join(output, "assets/og-image.jpg")));
