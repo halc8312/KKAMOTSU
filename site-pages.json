@@ -1,0 +1,9 @@
+{
+  "pages": [
+    { "path": "activity", "label": "活動の記録", "english": "ACTIVITY", "published": false },
+    { "path": "company", "label": "会社情報", "english": "COMPANY", "published": true },
+    { "path": "recruit", "label": "ドライバー募集", "english": "RECRUIT", "published": true },
+    { "path": "service", "label": "配送サービス", "english": "SERVICE", "published": false },
+    { "path": "contact", "label": "お問い合わせ", "english": "CONTACT", "published": true }
+  ]
+}
