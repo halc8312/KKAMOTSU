@@ -647,3 +647,18 @@ h2 {
   .promise-grid, .activity-samples { scroll-snap-type: none; }
   *, *::before, *::after { transition: none !important; }
 }
+
+/* One plain line under the motto says what the company does and where. */
+.photo-home .hero-summary { display: flex; flex-wrap: wrap; gap: 0 var(--space-1); margin: var(--space-2) 0 0; color: var(--white); font-size: var(--font-small); font-weight: 500; line-height: 1.5; letter-spacing: 0.04em; text-shadow: 0 1px 8px rgba(5, 31, 43, 0.6); }
+
+/* The one filled LINE action: used where a visitor decides to get in touch. */
+.button.line.line-strong { background: var(--line-action-ink); color: var(--white); border-color: var(--line-action-ink); font-weight: 700; }
+.button.line.line-strong:active { background: #185430; border-color: #185430; }
+@media (hover: hover) and (pointer: fine) {
+  .button.line.line-strong:hover { background: #185430; border-color: #185430; }
+}
+
+.page-return { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-6); }
+@media (max-width: 360px) {
+  .photo-home .hero-summary > span[aria-hidden] { display: none; }
+}

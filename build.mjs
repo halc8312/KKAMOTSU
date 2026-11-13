@@ -31,14 +31,13 @@ function navigation(currentPath) {
   return `<nav class="below-hero-nav" aria-label="メインナビゲーション">\n      <div class="below-hero-nav-inner">\n${links.join("\n")}\n      </div>\n    </nav>`;
 }
 
-async function writePage(currentPath) {
-  const relativePath = currentPath ? path.join(currentPath, "index.html") : "index.html";
+async function writePage(currentPath, relativePath = currentPath ? path.join(currentPath, "index.html") : "index.html") {
   const html = await readFile(path.join(root, relativePath), "utf8");
   const navPattern = /<nav class="below-hero-nav"[^>]*>[\s\S]*?<\/nav>/;
   // Fail rather than ship a stale menu if a page's shared navigation is removed.
   if (!navPattern.test(html)) throw new Error(`Missing shared navigation in ${relativePath}`);
   let page = html.replace(navPattern, navigation(currentPath)).replaceAll("%SITE_URL%", siteUrl);
-  if (noindex) {
+  if (noindex && !page.includes('name="robots"')) {
     page = page.replace(/(<meta name="viewport"[^>]*>)/, `$1\n    <meta name="robots" content="noindex" />`);
     if (!page.includes('name="robots"')) throw new Error(`Could not mark ${relativePath} as noindex`);
   }
@@ -55,6 +54,8 @@ for (const { path: route } of publishedPages) {
   await cp(path.join(root, route), path.join(output, route), { recursive: true });
   await writePage(route);
 }
+// Shown for mistyped or outdated addresses (GitHub Pages serves it as is; XServer needs ErrorDocument).
+await writePage(null, "404.html");
 await copyFile(path.join(root, "styles.css"), path.join(output, "styles.css"));
 await cp(path.join(root, "assets"), path.join(output, "assets"), { recursive: true });
 if (!noindex) {

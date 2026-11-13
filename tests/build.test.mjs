@@ -59,6 +59,8 @@ for (const basePath of ["", "/KKAMOTSU"]) {
       }
       assert.equal(html.includes('<meta name="robots" content="noindex" />'), Boolean(basePath), `${route}: noindex`);
     }
+    const notFound = readFileSync(path.join(output, "404.html"), "utf8");
+    assert.ok(notFound.includes('<meta name="robots" content="noindex" />') && notFound.includes(`href="${basePath}/recruit/"`));
     assert.ok(existsSync(path.join(output, "assets/og-image.jpg")));
     if (basePath) {
       assert.ok(!existsSync(path.join(output, "sitemap.xml")));
