@@ -9,7 +9,8 @@ const root = fileURLToPath(new URL("../", import.meta.url));
 const output = path.join(root, "dist");
 const routes = ["", "company/", "recruit/", "contact/"];
 
-const { siteUrl } = JSON.parse(readFileSync(path.join(root, "site-pages.json"), "utf8"));
+const { siteUrl: configuredSiteUrl } = JSON.parse(readFileSync(path.join(root, "site-pages.json"), "utf8"));
+const siteUrl = configuredSiteUrl.replace(/\/+$/, "");
 
 function build(basePath, extraEnv = {}) {
   execFileSync(process.execPath, ["build.mjs"], {
