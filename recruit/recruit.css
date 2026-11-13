@@ -28,10 +28,13 @@
 .jobs-income-summary { min-width: 0; }
 .jobs-income-summary h4 { margin: 0 0 var(--space-1); color: var(--line-action-ink); font-size: var(--font-small); font-weight: 500; line-height: 1.5; }
 .jobs-income-days { margin: 0; color: var(--muted); font-size: var(--font-small); line-height: 1.5; }
-.jobs-income-amount { display: flex; align-items: baseline; gap: var(--space-1); margin: 0; color: var(--action-ink); line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.jobs-income-total { min-width: 0; text-align: right; }
+.jobs-income-amount { display: flex; justify-content: flex-end; align-items: baseline; gap: var(--space-1); margin: 0; color: var(--action-ink); line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .jobs-income-amount strong { font-size: clamp(2rem, 3vw, 2.25rem); font-weight: 600; }
 .jobs-income-amount span { font-size: var(--font-small); }
-.jobs-income-note { margin: var(--space-4) 0 0; padding-top: var(--space-3); color: var(--muted); border-top: 1px solid var(--line); font-size: var(--font-caption); line-height: 1.75; }
+.jobs-income-basis { margin: var(--space-1) 0 0; color: var(--muted); font-size: var(--font-small); line-height: 1.5; }
+.jobs-income-note { margin: var(--space-4) 0 0; padding-top: var(--space-3); color: var(--muted); border-top: 1px solid var(--line); font-size: var(--font-small); line-height: 1.75; }
+.jobs-income-note strong { color: var(--action-ink); font-weight: 700; }
 .jobs-details { border: 1px solid var(--line); border-radius: var(--radius-card); }
 .jobs-details > summary { min-height: var(--control-height); display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); padding: var(--space-3) var(--space-4); color: var(--action-ink); font-size: var(--font-small); font-weight: 500; list-style: none; cursor: pointer; touch-action: manipulation; }
 .jobs-details > summary::-webkit-details-marker { display: none; }
